@@ -3,8 +3,9 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Kenzo - Ethical Hacker</title>
+  <title>Kenzo | Cyber Intelligence</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0; padding: 0;
@@ -12,28 +13,40 @@
     }
 
     body {
-      background: #0d0d0d;
-      color: #f0f0f0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1b1b1b);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 30px;
+      padding: 40px 20px;
+      min-height: 100vh;
     }
 
-    h1, h2 {
-      color: #0ff;
-      margin-bottom: 20px;
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      color: #00ffe1;
+      font-size: 28px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px #00ffe1;
     }
 
     form, .profile {
-      background: #1a1a1a;
+      background: rgba(0,0,0,0.4);
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 10px #00ffff20;
+      box-shadow: 0 0 10px #00ffe130;
       width: 90%;
-      max-width: 400px;
+      max-width: 450px;
       text-align: center;
+      margin-top: 20px;
     }
 
     input {
@@ -42,12 +55,12 @@
       padding: 12px;
       border: none;
       border-radius: 8px;
-      background: #333;
+      background: #1b1b1b;
       color: #fff;
     }
 
     button {
-      background: #0ff;
+      background: #00ffe1;
       border: none;
       padding: 12px 25px;
       color: #000;
@@ -61,6 +74,20 @@
       background: #00cccc;
     }
 
+    .profile-info {
+      text-align: left;
+      margin: 20px 0;
+    }
+
+    .profile-info p {
+      margin: 10px 0;
+    }
+
+    .profile-info i {
+      margin-right: 8px;
+      color: #0ff;
+    }
+
     .skill-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -69,16 +96,17 @@
     }
 
     .skill {
-      background: #262626;
+      background: #111;
       padding: 15px;
       border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
       text-align: center;
+      border: 1px solid #0ff2;
     }
 
     .skill:hover {
-      background: #333;
+      background: #222;
       transform: scale(1.05);
     }
 
@@ -94,7 +122,7 @@
 
     .footer {
       margin-top: 40px;
-      color: #777;
+      color: #888;
       font-size: 13px;
     }
   </style>
@@ -102,52 +130,53 @@
 <body>
 
   <form id="formIdentitas">
-    <h2>Isi Identitas Anda</h2>
-    <input type="text" id="nama" placeholder="Nama Anda" required>
+    <h1>Selamat Datang</h1>
+    <p>Silakan isi identitas untuk melanjutkan</p>
+    <input type="text" id="nama" placeholder="Nama Lengkap" required>
     <input type="email" id="email" placeholder="Email Aktif" required>
     <input type="number" id="umur" placeholder="Umur" required>
-    <button type="submit">Lihat Profil Kenzo</button>
+    <button type="submit">Lanjutkan</button>
   </form>
 
   <div class="profile hidden" id="profile">
-    <h1>Kenzo - Ethical Hacker</h1>
-    <p>Asal: Pekanbaru, Riau</p>
-    <p>Email: pykcyber@gmail.com | Kontak: 083143490913</p>
-    <h2>💻 Skill Hacking</h2>
+    <h1>Kenzo | Cyber Intelligence</h1>
+    <div class="profile-info">
+      <p><i class="fas fa-map-marker-alt"></i> Pekanbaru, Riau</p>
+      <p><i class="fas fa-envelope"></i> pykcyber@gmail.com</p>
+      <p><i class="fas fa-phone"></i> 083143490913</p>
+    </div>
+
+    <h2>Skill Hacking</h2>
     <div class="skill-list">
       <div class="skill" onclick="toggleDesc(0)">
         <i class="fas fa-user-secret"></i><br>Social Engineering
-        <div class="desc hidden">Teknik memanipulasi target untuk mengungkap data rahasia.</div>
+        <div class="desc hidden">Manipulasi psikologis untuk akses data sensitif.</div>
       </div>
       <div class="skill" onclick="toggleDesc(1)">
         <i class="fas fa-search"></i><br>OSINT
-        <div class="desc hidden">Mengumpulkan informasi publik untuk keperluan analisis.</div>
+        <div class="desc hidden">Penggalian info terbuka dari internet.</div>
       </div>
       <div class="skill" onclick="toggleDesc(2)">
         <i class="fas fa-fish"></i><br>Phishing
-        <div class="desc hidden">Teknik jebakan untuk mencuri data melalui link palsu.</div>
+        <div class="desc hidden">Link palsu untuk jebak pengguna awam.</div>
       </div>
       <div class="skill" onclick="toggleDesc(3)">
-        <i class="fas fa-globe"></i><br>Website Pentest
-        <div class="desc hidden">Menguji keamanan sebuah website dari celah seperti SQLi, XSS.</div>
+        <i class="fas fa-globe"></i><br>Web Pentest
+        <div class="desc hidden">Uji keamanan web (SQLi, XSS, dll).</div>
       </div>
       <div class="skill" onclick="toggleDesc(4)">
-        <i class="fas fa-wifi"></i><br>WiFi Hacking
-        <div class="desc hidden">Mengakses dan menganalisis jaringan nirkabel (edukasi).</div>
+        <i class="fas fa-wifi"></i><br>WiFi Exploit
+        <div class="desc hidden">Analisa & akses jaringan wireless secara etis.</div>
       </div>
       <div class="skill" onclick="toggleDesc(5)">
-        <i class="fas fa-key"></i><br>Bypass Login
-        <div class="desc hidden">Masuk ke akun atau sistem tanpa kredensial sah.</div>
-      </div>
-      <div class="skill" onclick="toggleDesc(6)">
-        <i class="fas fa-terminal"></i><br>Tools Developer
-        <div class="desc hidden">Membuat tools berbasis bash/python untuk keamanan digital.</div>
+        <i class="fas fa-terminal"></i><br>Tools Dev
+        <div class="desc hidden">Membuat tools bash/python untuk audit keamanan.</div>
       </div>
     </div>
   </div>
 
   <div class="footer">
-    &copy; 2025 Kenzo - All Rights Reserved
+    &copy; 2025 Kenzo | pykcyber
   </div>
 
   <script>
